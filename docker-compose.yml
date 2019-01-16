@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  javalin-api:
+    container_name: javalin-api
+    restart: always
+    build:
+      context: .
+    volumes:
+      - ./build/libs/:/javalin
+    ports:
+      - "7000:7000"
+    depends_on:
+      - javalin-mysql
+    environment:
+      ENVIRONMENT: development
+      MYSQL_URL: jdbc:mysql://javalin-mysql/javalin
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+
+  javalin-mysql:
+    container_name: javalin-mysql
+    image: mysql:5.7.21
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: javalin

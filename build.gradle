@@ -1,0 +1,38 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.10'
+}
+
+group 'br.com.ms'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    compile 'io.javalin:javalin:2.5.0'
+    compile 'org.jetbrains.exposed:exposed:0.11.2'
+    compile 'org.slf4j:slf4j-simple:1.7.25'
+    compile 'mysql:mysql-connector-java:5.1.46'
+    compile 'com.zaxxer:HikariCP:3.3.0'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.6'
+    testCompile 'junit:junit:4.12'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'br.com.ms.javalinexample.ApplicationKt'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
