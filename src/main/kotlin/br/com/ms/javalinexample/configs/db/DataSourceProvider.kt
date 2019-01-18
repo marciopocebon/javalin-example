@@ -1,3 +1,5 @@
+package br.com.ms.javalinexample.configs.db
+
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import java.util.*

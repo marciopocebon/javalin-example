@@ -18,6 +18,7 @@ dependencies {
     compile 'mysql:mysql-connector-java:5.1.46'
     compile 'com.zaxxer:HikariCP:3.3.0'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.9.6'
+    compile 'com.fasterxml.jackson.module:jackson-module-kotlin:2.9.4.1'
     testCompile 'junit:junit:4.12'
 }
 

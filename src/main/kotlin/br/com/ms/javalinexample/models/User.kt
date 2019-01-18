@@ -5,7 +5,7 @@ class User(
     val email: String,
     val password: String
 ) {
-    var id: Int = 0
+    var id = 0
 }
 
 
